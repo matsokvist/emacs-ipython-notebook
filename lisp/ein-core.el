@@ -139,7 +139,6 @@ the source is in git repository."
 ;; TODO: Use symbols instead of numbers for ipython version ('jupyter and 'legacy)?
 (defun ein:query-ipython-version (&optional url-or-port force)
   (ein:aif (and (not force) (gethash (or url-or-port (ein:default-url-or-port)) *running-ipython-version*))
-      it
     (let ((resp (request (ein:url (or url-or-port
                                       (ein:default-url-or-port))
                                   "api")
